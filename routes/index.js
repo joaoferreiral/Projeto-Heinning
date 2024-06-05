@@ -14,6 +14,3 @@ router.get('/', async function(req, res, next) {
 });
 
 module.exports = router;
-
-// Massa mano, tas no caminho certo!!
-// testando mais um commit
