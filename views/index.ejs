@@ -2,10 +2,57 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <base href="/">
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+
+    <nav>
+      <div id="logo">
+        <p><%= title %></p>
+      </div>
+
+      <div id="opcoes">
+        <button id="novaCompra">Nova Compra</button>
+      </div>
+
+    </nav>
+
+    <div id="dash">
+
+      <div id="infoUsuario">
+        <img src="" alt="">
+        <h2><%= usuarios[0].nome_usuario %></h2>
+        <p><%= usuarios[0].email %></p>
+      </div>
+
+      <div id="saldo">
+        <h2><%= usuarios[0].saldo_usuario %></h2>
+      </div>
+      <div id="">
+      </div>
+
+      <div id="projecao">
+        <h3 id="saldoDevedor">Saldo devedor: </h3>
+        <h3 id="proxParcela">Próxima parcela: </h3>
+      </div>
+
+    </div>
+
+    <div id="comprasQuadro">
+
+      
+        <% compras.forEach(function(compra) { %>
+          <div class="comprasCard">
+            <img src="" alt="">
+            <p><%= compra.nomeProduto %></p>
+            <p><%= compra.valor %></p>
+            <p><%= compra.parcela %></p>
+            <p><%= compra.dataCompra %></p>
+          </div>
+      <% }); %>
+
+    
+
   </body>
 </html>

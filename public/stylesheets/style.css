@@ -1,8 +1,79 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
 }
 
-a {
-  color: #00B7FF;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+}
+
+#logo p {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+#opcoes button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#opcoes button:hover {
+  background-color: #45a049;
+}
+
+#dash {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+#infoUsuario, #saldo, #projecao {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  box-sizing: border-box;
+}
+
+#infoUsuario img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#comprasQuadro {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.comprasCard {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.comprasCard img {
+  max-width: 50px;
+  margin-right: 20px;
+}
+
+.comprasCard p {
+  margin: 0 10px;
+  flex-grow: 1;
 }
