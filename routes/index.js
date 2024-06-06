@@ -1,7 +1,6 @@
 var express = require('express');
-var router = express.Router();
+ router = express.Router();
 
-/* GET home page. */
 router.get('/', async function(req, res, next) {
   const resCompras = await fetch("https://ubiquitous-guide-rj4gwp9467j35gg9-3000.app.github.dev/produtos");
   const compras = await resCompras.json();
@@ -11,6 +10,7 @@ router.get('/', async function(req, res, next) {
 
   res.render('index', { title: 'Finance', compras, usuarios });
 });
+
 
 router.get('/novaCompra', function(req, res, next) {
   res.render('novaCompra');

@@ -22,13 +22,21 @@
       <h2><%= usuarios[0].nome_usuario %></h2>
       <p><%= usuarios[0].email %></p>
     </div>
+
     <div id="saldo">
       <h2>Saldo</h2>
       <h3>R$ <%= usuarios[0].saldo_usuario %></h3>
     </div>
-    <div id=""></div>
+
     <div id="projecao">
-      <h3>Saldo devedor: <span id="saldoDevedor"></span></h3>
+      <%
+        var totalDevedor = 0;
+        compras.forEach(function(compra) {
+          totalDevedor += compra.valor_produto;
+        });
+        console.log(totalDevedor);
+      %>
+      <h3>Saldo devedor: <%= totalDevedor %></h3>
       <h3 id="proxParcela">Próxima parcela: </h3>
     </div>
   </div>
@@ -51,23 +59,9 @@
 
   <script>
     
-
     const saldoDevedor = document.getElementById("saldoDevedor");
     const excluirButtons = document.getElementsByClassName("excluir");
     const novaCompra = document.getElementById("novaCompra");
-
-    function calcularSaldoDevedor() {
-      let total = 0;
-      const valorProdutos = document.getElementsByClassName("valor_produto");
-
-      for (let i = 0; i < valorProdutos.length; i++) {
-        total += parseFloat(valorProdutos[i].textContent);
-      }
-
-      saldoDevedor.textContent = total.toFixed(2);
-    }
-
-    calcularSaldoDevedor();
 
     novaCompra.onclick = () => {
       window.location.href = '/novaCompra';
@@ -82,6 +76,7 @@
         location.reload();
       };
     }
+    
   </script>
 </body>
 </html>
