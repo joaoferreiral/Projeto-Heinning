@@ -1,58 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
-    <base href="/">
-  </head>
-  <body>
-
-    <nav>
-      <div id="logo">
-        <p><%= title %></p>
-      </div>
-
-      <div id="opcoes">
-        <button id="novaCompra">Nova Compra</button>
-      </div>
-
-    </nav>
-
-    <div id="dash">
-
-      <div id="infoUsuario">
-        <img src="" alt="">
-        <h2><%= usuarios[0].nome_usuario %></h2>
-        <p><%= usuarios[0].email %></p>
-      </div>
-
-      <div id="saldo">
-        <h2><%= usuarios[0].saldo_usuario %></h2>
-      </div>
-      <div id="">
-      </div>
-
-      <div id="projecao">
-        <h3 id="saldoDevedor">Saldo devedor: </h3>
-        <h3 id="proxParcela">Próxima parcela: </h3>
-      </div>
-
+<head>
+  <title><%= title %></title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+  
+  <base href="/">
+</head>
+<body>
+  <nav>
+    <div id="logo">
+      <p><%= title %></p>
     </div>
+    <div id="opcoes">
+      <button id="novaCompra">Nova Compra</button>
+    </div>
+  </nav>
 
-    <div id="comprasQuadro">
+  <div id="dash">
+    <div id="infoUsuario">
+      <img src="" alt="">
+      <h2><%= usuarios[0].nome_usuario %></h2>
+      <p><%= usuarios[0].email %></p>
+    </div>
+    <div id="saldo">
+      <h2>Saldo</h2>
+      <h3>R$ <%= usuarios[0].saldo_usuario %></h3>
+    </div>
+    <div id=""></div>
+    <div id="projecao">
+      <h3>Saldo devedor: <span id="saldoDevedor"></span></h3>
+      <h3 id="proxParcela">Próxima parcela: </h3>
+    </div>
+  </div>
 
-      
-        <% compras.forEach(function(compra) { %>
-          <div class="comprasCard">
-            <img src="" alt="">
-            <p><%= compra.nomeProduto %></p>
-            <p><%= compra.valor %></p>
-            <p><%= compra.parcela %></p>
-            <p><%= compra.dataCompra %></p>
-          </div>
-      <% }); %>
+  <div id="comprasQuadro">
+    <% compras.forEach(function(compra) { %>
+      <div class="comprasCard">
+        <img src="" alt="">
+        <p class="id"><%= compra.id_produto %></p>
+        <p><%= compra.nome_produto %></p>
+        <p><%= compra.codigo_produto %></p>
+        <p class="valor_produto"><%= compra.valor_produto %></p>
+        <p><%= compra.parcela_produto %></p>
+        <p><%= compra.data_compra_produto %></p>
+        <button class="editar">Editar</button>
+        <button class="excluir">Excluir</button>
+      </div>
+    <% }); %>
+  </div>
 
+  <script>
     
 
-  </body>
+    const saldoDevedor = document.getElementById("saldoDevedor");
+    const excluirButtons = document.getElementsByClassName("excluir");
+    const novaCompra = document.getElementById("novaCompra");
+
+    function calcularSaldoDevedor() {
+      let total = 0;
+      const valorProdutos = document.getElementsByClassName("valor_produto");
+
+      for (let i = 0; i < valorProdutos.length; i++) {
+        total += parseFloat(valorProdutos[i].textContent);
+      }
+
+      saldoDevedor.textContent = total.toFixed(2);
+    }
+
+    calcularSaldoDevedor();
+
+    novaCompra.onclick = () => {
+      window.location.href = '/novaCompra';
+    }
+
+    for (let i = 0; i < excluirButtons.length; i++) {
+      excluirButtons[i].onclick = () => {
+        const idProduto = excluirButtons[i].parentNode.querySelector(".id").textContent;
+        fetch(`/produtos/${idProduto}`, {
+          method: "DELETE"
+        })
+        location.reload();
+      };
+    }
+  </script>
+</body>
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Finance</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <base href="/">
+  </head>
+  <body>
+
+    <nav>
+      <div id="logo">
+        <p>Fiance</p>
+      </div>
+      <div id="opcoes">
+        <button id="voltar">Voltar</button>
+      </div>
+    </nav>
+
+    <div id="formulario">
+      <form id="formsCompra" action="/produtos" method="post">
+        <label for="nome_produto">Nome do Produto: </label>
+        <input type="text" id="nome_produto" name="nome_produto">
+
+        <label for="codigo_produto">Código do Produto: </label>
+        <input type="text" id="codigo_produto" name="codigo_produto">
+        
+        <label for="valor_produto">Valor: </label>
+        <input type="text" id="valor_produto" name="valor_produto">
+        
+        <label for="parcelas_produto">Parcelas: </label>
+        <input type="number" id="parcelas_produto" name="parcelas_produto">
+        
+        <label for="data_compra_produto">Data da Compra: </label>
+        <input type="date" id="data_compra_produto" name="data_compra_produto">
+        
+        <button type="submit">Enviar</button>
+      </form>
+    </div>    
+
+    <script>
+
+      const voltarButton = document.getElementById('voltar');
+      voltarButton.onclick = () => {
+        window.location.href = '/';
+      };
+    
+    </script> 
+  </body>
+</html>
