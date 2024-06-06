@@ -77,3 +77,40 @@ nav {
   margin: 0 10px;
   flex-grow: 1;
 }
+
+/* Estilo para os botões de editar e excluir */
+button.editar, button.excluir {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button.editar i, button.excluir i {
+  margin-right: 8px;
+}
+
+button.editar {
+  background-color: #4CAF50;
+  color: white;
+}
+
+button.editar:hover {
+  background-color: #45a049;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button.excluir {
+  background-color: #f44336;
+  color: white;
+}
+
+button.excluir:hover {
+  background-color: #e53935;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

@@ -3,7 +3,7 @@
 <head>
   <title><%= title %></title>
   <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <base href="/">
 </head>
 <body>
@@ -51,14 +51,13 @@
         <p class="valor_produto"><%= compra.valor_produto %></p>
         <p><%= compra.parcela_produto %></p>
         <p><%= compra.data_compra_produto %></p>
-        <button class="editar">Editar</button>
-        <button class="excluir">Excluir</button>
+        <button class="editar"><i class="fas fa-edit"></i> Editar</button>
+        <button class="excluir"><i class="fas fa-trash-alt"></i> Excluir</button>
       </div>
     <% }); %>
   </div>
 
   <script>
-    
     const saldoDevedor = document.getElementById("saldoDevedor");
     const excluirButtons = document.getElementsByClassName("excluir");
     const novaCompra = document.getElementById("novaCompra");
@@ -76,7 +75,6 @@
         location.reload();
       };
     }
-    
   </script>
 </body>
 </html>
